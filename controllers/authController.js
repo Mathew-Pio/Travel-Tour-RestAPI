@@ -15,7 +15,7 @@ export const signup = async (req, res) => {
         })
 
         await newUser.save();
-        return res.status(200).json({success:true, message: 'Successfully created'})
+        return res.status(200).json({success:true, message: 'Successfully created', data:newUser})
     }catch(err){
         return res.status(500).json({err,success:false, message: 'Failed to signup, try again'})
     }
