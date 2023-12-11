@@ -1,13 +1,13 @@
 import express from 'express';
 import { createTour, updateTour, deleteTour, getSingleTour, getAllTours, getTourBySearch, getFeaturedTours, getTourCount } from '../controllers/tourController.js';
-import { verifyAdmin } from '../auth/verifyToken.js'
+import { verifyAdmin, verifyToken } from '../auth/verifyToken.js'
 const router = express.Router();
 
-router.post('/', verifyAdmin, createTour);
+router.post('/', verifyToken, createTour);
 
-router.put('/:id', verifyAdmin, updateTour);
+router.put('/:id', verifyToken, updateTour);
 
-router.delete('/:id', verifyAdmin, deleteTour);
+router.delete('/:id', verifyToken, deleteTour);
 
 router.get('/:id', getSingleTour);
 
